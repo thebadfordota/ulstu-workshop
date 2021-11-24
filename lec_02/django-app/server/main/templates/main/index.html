@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+<h1>{{ heading }}</h1>
+<div class="main_welcome">
+    <p>
+        Здравствуйте, на этом сайте вы можете пройти тестирование <br> на знание языка программирования Python. <br><br>
+        {{ info }}
+    </p>
+    <div class="container">
+        <button type="button" class="btn btn-3" onclick="window.location.href='{% url url_name %}'">
+            Начать тестирование
+        </button><br>
+    </div>
+</div>
+{% endblock %}
