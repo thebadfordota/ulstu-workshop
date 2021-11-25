@@ -84,7 +84,7 @@ class QuizResultService:
         for i in range(len(self.user_answers)):
             cnt = 0
             for key, value in self.user_answers[i].items():
-                print(key)
+                #  print(key)
                 if key == self.questions_info[i]['right']:
                     if value:
                         cnt += 1
@@ -94,5 +94,5 @@ class QuizResultService:
             if cnt == 4:
                 correct_answers += 1
 
-        print(correct_answers)
+        # print(correct_answers)
         return correct_answers / len(self.questions_info)
