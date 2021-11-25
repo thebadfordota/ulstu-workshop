@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    <form method="post" class="box">
+        <div class="main_welcome">
+            <p>{{ info }}</p>
+            {% csrf_token %}
+            <label class="check option">
+                {{ form.option_1 }}
+                <span class="check__box"></span>
+                <span class="check__info">A) {{ question_1 }}</span>
+            </label>
+            <label class="check option">
+                {{ form.option_2 }}
+                <span class="check__box"></span>
+                <span class="check__info">B) {{ question_2 }}</span>
+            </label>
+            <label class="check option">
+                {{ form.option_3 }}
+                <span class="check__box"></span>
+                <span class="check__info">C) {{ question_3 }}</span>
+            </label>
+            <label class="check option">
+                {{ form.option_4 }}
+                <span class="check__box"></span>
+                <span class="check__info">D) {{ question_4 }}</span>
+            </label>
+            <div class="container">
+                <div class="container">
+                <button type="button" class="btn btn-2" onclick="window.location.href='{% url url_name %}'">
+                    {{ return_button }}
+                </button><br>
+                <button type="submit" class="btn btn-3"> {{ submit_button }}</button><br>
+            </div>
+        </div>
+    </form>
+{% endblock %}

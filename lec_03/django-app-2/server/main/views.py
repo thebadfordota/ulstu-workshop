@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import TestForm
 from .services import QuizResultService
+from .models import Quiz
 
 quiz = QuizResultService()
 
@@ -13,11 +14,13 @@ def to_fixed(main_num: float, digits: int) -> str:
 def view_home_page(request):
     """Выводит данные на главную страницу и сбрасывает все предыдущие ответы пользователя в списке "answers_dicts"."""
     quiz.clear_answers()
+    quiz_obj = Quiz.objects.order_by('id')
     context = {
         'info': "Нажмите на кнопку, чтобы начать тестирование!",
         'title': "Главная страница",
         'heading': "Добро пожаловать",
-        'url_name': "main:test1"
+        'url_name': "main:test1",
+        'quiz_obj': quiz_obj
     }
     return render(request, 'main/index.html', context)
 

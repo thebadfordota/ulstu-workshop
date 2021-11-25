@@ -1,0 +1,41 @@
+{% extends 'main/base.html' %}
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+<h1>{{ heading }}</h1>
+<div class="main_welcome">
+    <p>
+        Здравствуйте, на этом сайте вы можете пройти тестирование <br> на знание языка программирования Python. <br><br>
+        {{ info }}
+    </p>
+    <div class="container">
+        <button type="button" class="btn btn-3" onclick="window.location.href='{% url url_name %}'">
+            Начать тестирование
+        </button><br>
+    </div>
+
+     <table class="table table-striped table-hover" style="text-align: center; margin-top: 35px;">
+        <thead>
+        <tr>
+            <th scope="col">Заголовок</th>
+            <th scope="col">О тесте</th>
+            <th scope="col">Автор</th>
+            <th scope="col">Дата создания</th>
+            <th scope="col">Дата обновления</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for el in quiz_obj %}
+        <tr>
+            <td>{{ el.title }}</td>
+            <td>{{ el.info }}</td>
+            <td>{{ el.author }}</td>
+            <td>{{ el.time_create }}</td>
+            <td>{{ el.time_update }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}
